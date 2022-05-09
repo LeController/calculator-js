@@ -25,7 +25,8 @@ h1 {
     width: 100%;
     height: 80px;
     font-size: 45px;
-    color: white;
+    background-color: aquamarine;
+    color: rgb(0, 0, 0);
     border: 1px solid pink;
     display: flex;
     align-items: center;
@@ -34,6 +35,7 @@ h1 {
 
 #buttons {
     display: flex;
+    
 }
 
 #symbols {
@@ -55,6 +57,7 @@ h1 {
 #numbers {
     width: 60%;
     height: 600px;
+    background-color: rgb(103, 138, 0);
     display: grid;
     grid-template-columns: auto auto auto;
 }
