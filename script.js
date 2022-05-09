@@ -36,14 +36,47 @@ adder.addEventListener('click', () => {
     operator = '+';
     currentNumber = '';
     display.textContent = '';
-})
+});
+
+subtracter.addEventListener('click', () => {
+    lastNumber = +currentNumber;
+    operator = '-';
+    currentNumber = '';
+    display.textContent = '';
+});
+
+multiplyer.addEventListener('click', () => {
+    lastNumber = +currentNumber;
+    operator = '*';
+    currentNumber = '';
+    display.textContent = '';
+});
+
+divider.addEventListener('click', () => {
+    lastNumber = +currentNumber;
+    operator = '/';
+    currentNumber = '';
+    display.textContent = '';
+});
 
 equals.addEventListener('click', () => {
     if (operator === '+') {
         answer = add(+lastNumber, +currentNumber)
         currentNumber = answer
         display.textContent = answer;
-    }
+    } else if (operator === '-') {
+        answer = subtract(+lastNumber, +currentNumber)
+        currentNumber = answer
+        display.textContent = answer;
+    } else if (operator === '*') {
+        answer = multiply(+lastNumber, +currentNumber)
+        currentNumber = answer
+        display.textContent = answer;
+    } else if (operator === '/') {
+        answer = divide(+lastNumber, +currentNumber)
+        currentNumber = answer
+        display.textContent = answer;
+    } 
 })
 
 function updateDisplay(numberToDisplay) {
