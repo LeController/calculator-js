@@ -1,11 +1,12 @@
 const display = document.querySelector('#screen');
-const decimal = document.querySelector('#decimal')
-let currentNumber = ''
+let currentNumber = '';
+let operator = '';
+let lastNumber;
+let answer; 
 
-
-one.addEventListener('click', updateDisplay.bind(null,'1'));
-two.addEventListener('click', updateDisplay.bind(null,'2'));
-three.addEventListener('click', updateDisplay.bind(null,'3'));
+one.addEventListener('click', updateDisplay.bind(null, '1'));
+two.addEventListener('click', updateDisplay.bind(null, '2'));
+three.addEventListener('click', updateDisplay.bind(null, '3'));
 four.addEventListener('click', updateDisplay.bind(null, '4'));
 five.addEventListener('click', updateDisplay.bind(null, '5'));
 six.addEventListener('click', updateDisplay.bind(null, '6'));
@@ -20,7 +21,6 @@ decimal.addEventListener('click', () => {
     }
 });
 
-
 backspace.addEventListener('click', () => {
     currentNumber = currentNumber.substring(0, currentNumber.length - 1);
     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
@@ -31,6 +31,20 @@ clear.addEventListener('click', () => {
     display.textContent = '';
 });
 
+adder.addEventListener('click', () => {
+    lastNumber = +currentNumber;
+    operator = '+';
+    currentNumber = '';
+    display.textContent = '';
+})
+
+equals.addEventListener('click', () => {
+    if (operator === '+') {
+        answer = add(+lastNumber, +currentNumber)
+        lastNum = +currentNumber
+        display.textContent = answer;
+    }
+})
 
 function updateDisplay(numberToDisplay) {
     currentNumber += numberToDisplay;
