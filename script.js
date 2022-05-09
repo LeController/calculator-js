@@ -1,51 +1,25 @@
 const display = document.querySelector('#screen');
-
+const decimal = document.querySelector('#decimal')
 let currentNumber = ''
 
-one.addEventListener('click', () => {
-    updateDisplay(display, '1')
-});
 
-two.addEventListener('click', () => {
-    updateDisplay(display, '2')
-});
-
-three.addEventListener('click', () => {
-    updateDisplay(display, '3')
-});
-
-four.addEventListener('click', () => {
-    updateDisplay(display, '4')
-});
-
-five.addEventListener('click', () => {
-    updateDisplay(display, '5')
-});
-
-six.addEventListener('click', () => {
-    updateDisplay(display, '6')
-});
-
-seven.addEventListener('click', () => {
-    updateDisplay(display, '7')
-});
-
-eight.addEventListener('click', () => {
-    updateDisplay(display, '8')
-});
-
-nine.addEventListener('click', () => {
-    updateDisplay(display, '9')
-});
-
-zero.addEventListener('click', () => {
-    updateDisplay(display, '0')
-});
+one.addEventListener('click', updateDisplay.bind(null,'1'));
+two.addEventListener('click', updateDisplay.bind(null,'2'));
+three.addEventListener('click', updateDisplay.bind(null,'3'));
+four.addEventListener('click', updateDisplay.bind(null, '4'));
+five.addEventListener('click', updateDisplay.bind(null, '5'));
+six.addEventListener('click', updateDisplay.bind(null, '6'));
+seven.addEventListener('click', updateDisplay.bind(null, '7'));
+eight.addEventListener('click', updateDisplay.bind(null, '8'));
+nine.addEventListener('click', updateDisplay.bind(null, '9'));
+zero.addEventListener('click', updateDisplay.bind(null, '0'));
 
 decimal.addEventListener('click', () => {
-    updateDisplay(display, '.');
-    removeEventListener('click', );
+    if (!display.textContent.includes('.')) {
+        updateDisplay('.')
+    }
 });
+
 
 backspace.addEventListener('click', () => {
     currentNumber = currentNumber.substring(0, currentNumber.length - 1);
@@ -58,12 +32,10 @@ clear.addEventListener('click', () => {
 });
 
 
-
-
-function updateDisplay(display, numberToDisplay) {
+function updateDisplay(numberToDisplay) {
     currentNumber += numberToDisplay;
     display.textContent += numberToDisplay;
-}
+};
 
 function add(a, b) {
     return a + b;
