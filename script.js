@@ -30,6 +30,7 @@ clear.addEventListener('click', () => {
     currentNumber = '';
     lastNumber = '';
     operator = '';
+    answer = '';
     display.textContent = '';
 });
 
