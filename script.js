@@ -28,6 +28,8 @@ backspace.addEventListener('click', () => {
 
 clear.addEventListener('click', () => {
     currentNumber = '';
+    lastNumber = '';
+    operator = '';
     display.textContent = '';
 });
 
