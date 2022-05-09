@@ -23,11 +23,13 @@ h1 {
 
 #screen {
     width: 100%;
-    height: auto;
+    height: 80px;
     font-size: 45px;
     color: white;
-    text-align: center;
     border: 1px solid pink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #buttons {
