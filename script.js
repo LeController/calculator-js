@@ -41,7 +41,7 @@ adder.addEventListener('click', () => {
 equals.addEventListener('click', () => {
     if (operator === '+') {
         answer = add(+lastNumber, +currentNumber)
-        lastNum = +currentNumber
+        currentNumber = answer
         display.textContent = answer;
     }
 })
