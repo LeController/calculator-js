@@ -1,5 +1,10 @@
+html {
+    background: linear-gradient(to top right, #ccff66 34%, #ff99cc 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 body {
-    background-color: rgb(68, 68, 68);
+    
     font-family: Helvetica, Arial, sans-serif;
     text-shadow: 1px 2px #cdcdcd;
 }
@@ -25,7 +30,7 @@ h1 {
     width: 100%;
     height: 80px;
     font-size: 45px;
-    background-color: aquamarine;
+    background: linear-gradient(43deg, #66ffcc 0%, #ffffff 100%);
     color: rgb(0, 0, 0);
     border: 1px solid pink;
     display: flex;
