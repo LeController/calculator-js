@@ -43,6 +43,12 @@ h1 {
     
 }
 
+#buttons * * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #symbols {
     width: 40%;
     height: 600px;
