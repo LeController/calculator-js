@@ -65,6 +65,10 @@ h1 {
     justify-content: center;
 }
 
+#symbols *:hover {
+    background-color: rgba(195, 186, 177, 0.829);
+}
+
 #numbers {
     width: 60%;
     height: 600px;
@@ -83,6 +87,9 @@ h1 {
     transition: all 0.07s;
 }
 
+#numbers *:hover {
+    background-color: rgb(208, 208, 208);
+}
 .pressed {
     transform: scale(1.05);
     border-color: #137dcf;
