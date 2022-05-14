@@ -80,4 +80,13 @@ h1 {
     text-align: center;
     align-items: center;
     justify-content: center;
+    transition: all 0.07s;
 }
+
+.pressed {
+    transform: scale(1.05);
+    border-color: #137dcf;
+    box-shadow: 0 0 1rem #e86717;
+    background-color: #ff99cc;
+    color: #ffffff;
+  }

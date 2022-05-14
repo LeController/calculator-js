@@ -15,6 +15,33 @@ eight.addEventListener('click', updateDisplay.bind(null, '8'));
 nine.addEventListener('click', updateDisplay.bind(null, '9'));
 zero.addEventListener('click', updateDisplay.bind(null, '0'));
 
+window.addEventListener('keydown', function(e) {
+    const key = document.querySelector(`div[key="${e.key}"]`)
+    // console.log(e);
+    key.classList.add("pressed");
+    // check if decimal is already present in display
+    if (e.key === '.') {
+        if (!display.textContent.includes('.')) {
+            updateDisplay(e.key)
+        }
+    // check if key pressed is backspace
+    } else if (e.key === 'Backspace') {
+        currentNumber = currentNumber.substring(0, currentNumber.length - 1);
+        display.textContent = display.textContent.substring(0, display.textContent.length - 1);
+    } else {
+        updateDisplay(e.key);
+    }
+});
+
+function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    this.classList.remove("pressed");
+}
+
+const keyNums = document.querySelectorAll('.key');
+keyNums.forEach(keyNum => keyNum.addEventListener('transitionend', removeTransition));
+
+
 decimal.addEventListener('click', () => {
     if (!display.textContent.includes('.')) {
         updateDisplay('.')
@@ -35,32 +62,40 @@ clear.addEventListener('click', () => {
 });
 
 adder.addEventListener('click', () => {
-    lastNumber = +currentNumber;
-    operator = '+';
-    currentNumber = '';
-    display.textContent = '';
+    if (operator === '') {
+        lastNumber = +currentNumber;
+        operator = '+';
+        currentNumber = '';
+        display.textContent = '';
+    }
 });
 
 subtracter.addEventListener('click', () => {
-    lastNumber = +currentNumber;
-    operator = '-';
-    currentNumber = '';
-    display.textContent = '';
+    if (operator === '') {
+        lastNumber = +currentNumber;
+        operator = '-';
+        currentNumber = '';
+        display.textContent = '';
+    }
 });
 
 multiplyer.addEventListener('click', () => {
-    lastNumber = +currentNumber;
-    operator = '*';
-    currentNumber = '';
-    display.textContent = '';
+    if (operator === '') {
+        lastNumber = +currentNumber;
+        operator = '*';
+        currentNumber = '';
+        display.textContent = '';
+    }
 });
 
 divider.addEventListener('click', () => {
-    lastNumber = +currentNumber;
-    operator = '/';
-    currentNumber = '';
-    display.textContent = '';
-});
+    if (operator === '') {
+        lastNumber = +currentNumber;
+        operator = '/';
+        currentNumber = '';
+        display.textContent = '';
+    }
+    });
 
 equals.addEventListener('click', () => {
     if (operator === '+') {
@@ -76,10 +111,16 @@ equals.addEventListener('click', () => {
         currentNumber = answer
         display.textContent = answer;
     } else if (operator === '/') {
-        answer = divide(+lastNumber, +currentNumber)
-        currentNumber = answer
-        display.textContent = answer;
+        if (currentNumber === '0') {
+            display.textContent = 'wow you broke math';
+        } else {
+            answer = divide(+lastNumber, +currentNumber);
+            answer = Math.round(answer * 10000) / 10000;
+            currentNumber = answer;
+            display.textContent = answer;
+        }
     } 
+    operator = ''
 })
 
 function updateDisplay(numberToDisplay) {
